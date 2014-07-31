@@ -1,6 +1,6 @@
 " Vim indent file
-" Language: Jade
-" Maintainer: Joshua Borton
+" Language: Blade
+" Maintainer: Norman Khine
 " Credits: Tim Pope (vim-jade)
 " Last Change: 2010 Sep 22
 
@@ -12,11 +12,11 @@ unlet! b:did_indent
 let b:did_indent = 1
 
 setlocal autoindent
-setlocal indentexpr=GetJadeIndent()
+setlocal indentexpr=GetBladeIndent()
 setlocal indentkeys=o,O,*<Return>,},],0),!^F
 
 " Only define the function once.
-if exists("*GetJadeIndent")
+if exists("*GetBladeIndent")
   finish
 endif
 
@@ -30,7 +30,7 @@ endif
 setlocal formatoptions+=r
 setlocal comments+=n:\|
 
-function! GetJadeIndent()
+function! GetBladeIndent()
   let lnum = prevnonblank(v:lnum-1)
   if lnum == 0
     return 0
@@ -60,7 +60,7 @@ function! GetJadeIndent()
     return increase
   elseif line =~? '^\v%('.g:jade_self_closing_tags.')>'
     return indent
-  elseif group =~? '\v^%(jadeAttributesDelimiter|jadeClass|jadeId|htmlTagName|htmlSpecialTagName|jadeFilter|jadeTagBlockChar)$'
+  elseif group =~? '\v^%(bladeAttributesDelimiter|bladeClass|bladeId|htmlTagName|htmlSpecialTagName|bladeFilter|bladeTagBlockChar)$'
     return increase
   else
     return indent

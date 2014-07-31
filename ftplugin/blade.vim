@@ -1,6 +1,6 @@
 " Vim filetype plugin
-" Language: Jade
-" Maintainer: Joshua Borton
+" Language: Blade
+" Maintainer: Norman Khine
 " Credits: Tim Pope
 
 " Only do this when not done yet for this buffer
@@ -35,7 +35,7 @@ endif
 
 " Change the browse dialog on Win32 to show mainly Haml-related files
 if has("gui_win32")
-  let b:browsefilter="Jade Files (*.jade)\t*.jade\n" . s:browsefilter
+  let b:browsefilter="Blade Files (*.blade)\t*.blade\n" . s:browsefilter
 endif
 
 " Load the combined list of match_words for matchit.vim
@@ -45,7 +45,7 @@ endif
 
 setlocal comments=://-,:// commentstring=//\ %s
 
-setlocal suffixesadd+=.jade
+setlocal suffixesadd+=blade.
 
 let b:undo_ftplugin = "setl cms< com< "
       \ " | unlet! b:browsefilter b:match_words | " . s:undo_ftplugin
